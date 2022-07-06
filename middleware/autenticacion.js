@@ -1,6 +1,6 @@
-const autenticacionUser = ()=>{
+const autenticacionUser = (req,res,next)=>{
 	const administrador = true
-	if(administrador){
+	if(!administrador){
 		return res.status(401).json({msj:'usuario no permitido'})
 	}
 	next()

@@ -1,7 +1,6 @@
 const express= require('express')
 const rutas = express.Router()
 const {nuevoCarrito,borraCarrito,nuevoProdCarrito,obtenerProdCarrito,borraProdCarrito} = require('../controllers/controlerCarrito')
-
 // Me permite listar todos los productos guardados en el carrito
 rutas.get('/:id/productos',obtenerProdCarrito)
 

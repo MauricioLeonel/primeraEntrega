@@ -15,7 +15,6 @@ const nuevoProdCarrito = async (req,res)=>{
 	if(producto.message){
 		res.json({error:producto.message})
 	}else{
-		console.log(producto)
 		carrito[0].productos.push(...producto)
 		const data = await req.modelsCarritos.updateById(...carrito)
 		res.json(data)
