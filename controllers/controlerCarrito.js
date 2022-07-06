@@ -23,5 +23,11 @@ const nuevoProdCarrito = async (req,res)=>{
 	// const data = await req.modelsCarritos.save({timestamp, productos})
 }
 
-module.exports = {nuevoCarrito,borraCarrito,nuevoProdCarrito}
+const obtenerProdCarrito = async (req,res)=>{
+	const {params:{id}} = req
+	const carrito = await req.modelsCarritos.getById(parseInt(id))
+	carrito.message ? res.status(401).json({msj:carrito.message}) : res.json(carrito[0].productos)
+}
+
+module.exports = {nuevoCarrito,borraCarrito,nuevoProdCarrito,obtenerProdCarrito}
 
