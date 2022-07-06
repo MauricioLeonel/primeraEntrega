@@ -40,6 +40,7 @@ class Carrito{
 		}
 	}
 	updateById = async (producto)=>{
+		console.log(producto)
 		try {
 			const data = await this.getAll()
 			if(data.find(e=>e.id === producto.id)){
@@ -56,7 +57,6 @@ class Carrito{
 
 	}
 	borrarById = async (id)=>{
-
 		try {
 			const data = await this.getAll()
 			const result = data.filter(e=>e.id!==id);
@@ -69,7 +69,6 @@ class Carrito{
 			}
 			
 		} catch(e) {
-			// statements
 			return e
 		}
 	}
