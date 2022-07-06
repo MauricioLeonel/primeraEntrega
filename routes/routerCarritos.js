@@ -1,6 +1,6 @@
 const express= require('express')
 const rutas = express.Router()
-const {nuevoCarrito,borraCarrito,nuevoProdCarrito,obtenerProdCarrito} = require('../controllers/controlerCarrito')
+const {nuevoCarrito,borraCarrito,nuevoProdCarrito,obtenerProdCarrito,borraProdCarrito} = require('../controllers/controlerCarrito')
 
 // Me permite listar todos los productos guardados en el carrito
 rutas.get('/:id/productos',obtenerProdCarrito)
@@ -17,9 +17,7 @@ rutas.delete('/:id',borraCarrito)
 
 // Eliminar un producto del carrito por su id de carrito y de producto
 
-rutas.delete('/:id/productos/:id_prod',(req,res)=>{
-	res.send('todo oki')
-})
+rutas.delete('/:id/productos/:id_prod',borraProdCarrito)
 
 
 module.exports = rutas

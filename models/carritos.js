@@ -44,7 +44,7 @@ class Carrito{
 		try {
 			const data = await this.getAll()
 			if(data.find(e=>e.id === producto.id)){
-				const result = data.map(e=>e.id===producto.id ? e={...producto,timestamp:e.timestamp}: e)	
+				const result = data.map(e=>e.id===producto.id ? e={...producto}: e)	
 			    await this.borrarTodo()
 			    await this.save(result)
 			    return 'Los datos fueron actualizados'
